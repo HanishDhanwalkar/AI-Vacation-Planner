@@ -28,5 +28,14 @@ if st.button("Log in", type="primary"):
             
         sleep(0.5)
         st.switch_page("pages/page1.py")
+    elif username == "user1" or password == "pwd":
+        st.session_state.logged_in = True
+        st.success("Logged in successfully!")
+        
+        with open('tmp/tmp.txt', "w") as f:
+            f.write(username)
+            
+        sleep(0.5)
+        st.switch_page("pages/page1.py")
     else:
         st.error("Incorrect username or password")
