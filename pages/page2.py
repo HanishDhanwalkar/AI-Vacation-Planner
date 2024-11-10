@@ -11,6 +11,7 @@ make_sidebar()
 
 with open("tmp/tmp.txt") as f:
     username = f.read()
+    print(username)
     
 if os.path.exists(f'tmp/{username}.csv'):
     print("Loaded previous history")
@@ -38,7 +39,7 @@ the following details:
 
 MESSAGES = []
 for role, content in zip(df['role'], df['content']):
-        MESSAGES.append({"role": role, "content": [content]})
+    MESSAGES.append({"role": role, "content": content})
         
 def ollama_generator(model_name: str, msgs: Dict) -> Generator:
     system_message = SYS_MSG
@@ -81,7 +82,7 @@ st.session_state.selected_model = st.selectbox(
     "Please select the model:", [model["name"] for model in ollama.list()["models"]])
 for message in st.session_state.messages:
     with st.chat_message(message["role"]):
-        st.markdown(message["content"])
+        st.markdown(message["content"].replace("\\n", "\n"))
 if prompt := st.chat_input("How could I help you?"):
     # Add user message to chat history
     st.session_state.messages.append({"role": "user", "content": prompt})
@@ -104,5 +105,5 @@ if prompt := st.chat_input("How could I help you?"):
     df.to_csv(f'tmp/{username}.csv', index=False)
     print('history saved')
 
-if st.button('Create iterary'):
+if st.button('Create Itinerary'):
     st.write(create_iter(st.session_state.selected_model))
