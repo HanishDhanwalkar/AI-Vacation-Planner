@@ -2,7 +2,8 @@
 This is my submission to `Attentions.ai Campus Hiring Assessment`
 
 ## Demo:
-![Demo video](demos/demo1.gif)
+![Demo video](demos/demo1.gif) \
+Watch this on [YouTube](https://youtu.be/xgDJujQPARM)
 
 ## Pre-requisites:
 1. Ollama \
