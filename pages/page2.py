@@ -89,7 +89,7 @@ if prompt := st.chat_input("How could I help you?"):
     # Display user message in chat message container
     with st.chat_message("user"):
         st.markdown(prompt)
-        MESSAGES.append({"role": "user", "content": prompt})
+        MESSAGES.append({"role": "user", "content": prompt.replace("\n", "\\n")})
         
         
 
@@ -98,7 +98,7 @@ if prompt := st.chat_input("How could I help you?"):
             st.session_state.selected_model, st.session_state.messages))
     st.session_state.messages.append(
         {"role": "assistant", "content": response})
-    MESSAGES.append({"role": "assistant", "content": response})
+    MESSAGES.append({"role": "assistant", "content": response.replace("\n", "\\n")})
     
     
     df = pd.DataFrame(MESSAGES, columns=['role', 'content'])
