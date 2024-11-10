@@ -50,7 +50,7 @@ async def run(model: str):
           },
         },
       },
-    ],
+    ],    
   )
 
   # Add the model's response to the conversation history

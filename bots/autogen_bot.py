@@ -11,14 +11,15 @@ config_list = [
         'api_key': 'ollama',
     },
 ]
+llm_config={
+    "config_list": config_list,
+    "temperature": 1,
+}
 
 traveller = AssistantAgent(name="You: ",
                        max_consecutive_auto_reply=2,
                        system_message="You are a traveller exploring a new city. You are talking to travel assistant to get a optimal travel itinerary.",
-                       llm_config={
-                           "config_list": config_list,
-                           "temperature": 1,
-                       },
+                       llm_config=llm_config,
                        human_input_mode='ALWAYS')
 
 travel_agent_sys_msg = """You are a one-day tour planning assistant that helps users create a comprehensive plan for exploring a city based on their preferences. The system should remember user preferences across the conversation to personalize future itinerary suggestions based on past interactions. 

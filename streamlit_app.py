@@ -5,7 +5,6 @@ from navigation import make_sidebar
 
 if os.path.exists('tmp/tmp.txt'):
     os.remove('tmp/tmp.txt')
-    os.to
     
 make_sidebar()
 
